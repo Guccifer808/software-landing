@@ -2,9 +2,9 @@ import logo from "../assets/images/logo.png";
 
 type Props = {};
 
-const Header = (props: Props) => {
+const Navbar = (props: Props) => {
   return (
-    <header className="absolute sticky left-0 top-0 w-full bg-white/90 backdrop-blur">
+    <nav className="absolute sticky left-0 top-0 w-full bg-white/90 backdrop-blur">
       <div className="mx-auto h-[90px] max-w-7xl px-8 md:px-6">
         <div className="relative flex h-full items-center justify-between border-b border-dark-100/10">
           {/* Logo */}
@@ -38,8 +38,8 @@ const Header = (props: Props) => {
           </div>
         </div>
       </div>
-    </header>
+    </nav>
   );
 };
 
-export default Header;
+export default Navbar;

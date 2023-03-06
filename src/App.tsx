@@ -1,10 +1,12 @@
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+
+//do structure same as fintess-ts project
 
 function App() {
   return (
-    <>
-      <Header />
-    </>
+    <div className="app">
+      <Navbar />
+    </div>
   );
 }
 
