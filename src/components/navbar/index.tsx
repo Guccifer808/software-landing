@@ -92,7 +92,7 @@ const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
       </div>
       {/* Mob menu */}
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className="fixed right-0 top-[90px] w-full max-w-full rounded-lg border border-blue-200 bg-white p-6 transition-all duration-200 sm:right-1 sm:max-w-[300px]">
+        <div className="fixed right-0 top-[90px] z-30 w-full max-w-full rounded-lg border border-blue-200 bg-white p-6 transition-all duration-200 sm:right-1 sm:max-w-[300px]">
           <div
             className={`${flexBetween} text-md flex flex-col justify-center gap-6 font-semibold`}
           >
