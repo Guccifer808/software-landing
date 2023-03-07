@@ -19,3 +19,9 @@ body
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+/* Remove highlight color on mobile devices on tap */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
