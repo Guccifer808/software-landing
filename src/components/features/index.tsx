@@ -39,7 +39,7 @@ const container = {
 
 const Features: FC<Props> = ({ setSelectedPage }: Props) => {
   return (
-    <section className="py-16" id="features">
+    <section className="pb-16" id="features">
       <motion.div
         className="mx-auto max-w-7xl px-8 md:px-6"
         onViewportEnter={() => setSelectedPage(SelectedPage.Features)}
@@ -56,7 +56,7 @@ const Features: FC<Props> = ({ setSelectedPage }: Props) => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <span className="font-medium text-blue-500">Our Services</span>
+          <span className="font-medium text-blue-500">Our Features</span>
           <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
             Discover Our Features
           </h1>

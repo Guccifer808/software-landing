@@ -66,9 +66,11 @@ const About: FC<Props> = ({ setSelectedPage }) => {
                 </p>
               </li>
             </ul>
-            <ActionButton setSelectedPage={setSelectedPage}>
-              Get Started
-            </ActionButton>
+            <div className="flex w-full min-w-full">
+              <ActionButton setSelectedPage={setSelectedPage}>
+                Get Started
+              </ActionButton>
+            </div>
           </div>
 
           {/* about img */}

@@ -41,7 +41,7 @@ const Home: FC<Props> = ({ setSelectedPage }: Props) => {
   return (
     <section
       id="home"
-      className="flex w-full items-center justify-between py-16 md:h-full md:py-10"
+      className="flex w-full items-center justify-between py-16 md:h-full"
     >
       <div className="mx-auto mt-32 flex max-w-7xl flex-wrap items-center justify-between px-8 md:mt-14 md:px-6">
         <div className="w-full md:basis-5/12">
@@ -59,7 +59,7 @@ const Home: FC<Props> = ({ setSelectedPage }: Props) => {
               Get Started
             </ActionButton>
 
-            <button className="w-full min-w-[200px] rounded-md border-blue-500/20 px-8  py-2.5 text-center font-semibold text-blue-500 shadow-md shadow-blue-500/50 duration-200 hover:shadow-md hover:shadow-blue-500 md:w-max">
+            <button className="border:blue-500/50 w-full min-w-[200px] rounded-md border  border-blue-500/20 px-8 py-2.5 text-center font-semibold text-blue-500 shadow-md shadow-blue-500/50 duration-200 hover:shadow-md hover:shadow-blue-500 md:w-max">
               Register Now
             </button>
           </div>
@@ -82,7 +82,7 @@ const Home: FC<Props> = ({ setSelectedPage }: Props) => {
           </motion.div>
         </div>
         {/* Image */}
-        <div className="hidden items-center justify-end pb-10 md:flex md:w-6/12 md:pb-28">
+        <div className="hidden items-center justify-end pb-10 md:flex md:w-6/12 md:pb-10">
           <div className="relative z-10 inline-block pt-2 lg:pt-0">
             <img src={hero} alt="hero section img" className="max-w-full" />
           </div>
