@@ -1,3 +1,4 @@
+import { FC } from "react";
 import ActionButton from "../../shared/ActionButton";
 import { motion } from "framer-motion";
 import { SelectedPage, ServicesType } from "../../shared/types";
@@ -36,9 +37,9 @@ const container = {
   },
 };
 
-const Features = ({ setSelectedPage }: Props) => {
+const Features: FC<Props> = ({ setSelectedPage }: Props) => {
   return (
-    <section className="pb-16" id="services">
+    <section className="py-16" id="services">
       <motion.div
         className="mx-auto max-w-7xl px-8 md:px-6"
         onViewportEnter={() => setSelectedPage(SelectedPage.Services)}
@@ -73,13 +74,14 @@ const Features = ({ setSelectedPage }: Props) => {
           <div className="md:w-7/12">
             <div className="mb-16 flex flex-col">
               <p className="mb-3 text-slate-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-                explicabo perferendis voluptatibus sunt enim officiis.
+                Our solutions are tailored to meet your business needs. We offer
+                top-notch services in web design, automation, and infographics.
               </p>
               <p className="mb-10 text-slate-500">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint
-                laudantium, cum, quaerat nulla possimus magni odio ullam ratione
-                vitae id fuga aliquam sed molestiae? Voluptas.
+                We specialize in creating visually appealing and user-friendly
+                websites, optimizing business processes with automation
+                services, and presenting complex information in a clear and
+                engaging manner through our infographics service.
               </p>
               <ActionButton setSelectedPage={setSelectedPage}>
                 Get Started

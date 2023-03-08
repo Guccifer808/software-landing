@@ -1,3 +1,4 @@
+import { FC } from "react";
 import ActionButton from "../../shared/ActionButton";
 import { motion } from "framer-motion";
 import { BrandsType, SelectedPage } from "../../shared/types";
@@ -36,12 +37,11 @@ const container = {
     transition: { staggerChildren: 0.2 },
   },
 };
-
-const Home = ({ setSelectedPage }: Props) => {
+const Home: FC<Props> = ({ setSelectedPage }: Props) => {
   return (
     <section
       id="home"
-      className="flex w-full items-center justify-between py-6 md:h-full md:py-10"
+      className="flex w-full items-center justify-between py-16 md:h-full md:py-10"
     >
       <div className="mx-auto mt-32 flex max-w-7xl flex-wrap items-center justify-between px-8 md:mt-14 md:px-6">
         <div className="w-full md:basis-5/12">
