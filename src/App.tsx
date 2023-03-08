@@ -5,6 +5,7 @@ import Navbar from "./components/navbar";
 import Features from "./components/features";
 import { SelectedPage } from "./shared/types";
 import About from "./components/about";
+import Services from "./components/services";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -31,6 +32,7 @@ function App() {
       <Hero setSelectedPage={setSelectedPage} />
       <Features setSelectedPage={setSelectedPage} />
       <About setSelectedPage={setSelectedPage} />
+      <Services setSelectedPage={setSelectedPage} />
     </div>
   );
 }

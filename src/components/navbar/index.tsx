@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { useState } from "react";
 import logo from "../../assets/images/logo.png";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
@@ -12,7 +13,11 @@ type Props = {
   isTopOfPage: boolean;
 };
 
-const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
+const Navbar: FC<Props> = ({
+  selectedPage,
+  setSelectedPage,
+  isTopOfPage,
+}: Props) => {
   const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
@@ -37,14 +42,18 @@ const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-
                   <Link
-                    page="Services"
+                    page="Features"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
                   <Link
                     page="About"
+                    selectedPage={selectedPage}
+                    setSelectedPage={setSelectedPage}
+                  />
+                  <Link
+                    page="Services"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
@@ -101,13 +110,17 @@ const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
               setSelectedPage={setSelectedPage}
             />
             <Link
-              page="Services"
+              page="Features"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-
             <Link
               page="About"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Link
+              page="Services"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />

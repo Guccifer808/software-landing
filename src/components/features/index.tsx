@@ -1,7 +1,7 @@
 import { FC } from "react";
 import ActionButton from "../../shared/ActionButton";
 import { motion } from "framer-motion";
-import { SelectedPage, ServicesType } from "../../shared/types";
+import { SelectedPage, FeaturesType } from "../../shared/types";
 import Feature from "./Feature";
 import features from "../../assets/images/features/features.png";
 import icon1 from "../../assets/images/features/icon1.png";
@@ -12,7 +12,7 @@ type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
-const featuresList: Array<ServicesType> = [
+const featuresList: Array<FeaturesType> = [
   {
     image: { icon1 },
     title: "Web Design",
@@ -39,10 +39,10 @@ const container = {
 
 const Features: FC<Props> = ({ setSelectedPage }: Props) => {
   return (
-    <section className="py-16" id="services">
+    <section className="py-16" id="features">
       <motion.div
         className="mx-auto max-w-7xl px-8 md:px-6"
-        onViewportEnter={() => setSelectedPage(SelectedPage.Services)}
+        onViewportEnter={() => setSelectedPage(SelectedPage.Features)}
       >
         {/* heading text  */}
         <motion.div
@@ -58,7 +58,7 @@ const Features: FC<Props> = ({ setSelectedPage }: Props) => {
         >
           <span className="font-medium text-blue-500">Our Services</span>
           <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
-            Discover Our Services
+            Discover Our Features
           </h1>
         </motion.div>
         {/* services img  */}
@@ -95,7 +95,7 @@ const Features: FC<Props> = ({ setSelectedPage }: Props) => {
               viewport={{ once: true, amount: 0.5 }}
               variants={container}
             >
-              {featuresList.map((item: ServicesType) => (
+              {featuresList.map((item: FeaturesType) => (
                 <Feature
                   key={item.title}
                   image={Object.values(item.image)[0]} // extract the image file path
