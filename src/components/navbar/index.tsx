@@ -21,7 +21,7 @@ const Navbar: FC<Props> = ({
   const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
-  const navbarBg = isTopOfPage ? "" : "bg-stone-100 drop-shadow";
+  const navbarBg = isTopOfPage ? "" : "shadow-sm bg-white drop-shadow";
 
   return (
     <nav>
@@ -60,12 +60,6 @@ const Navbar: FC<Props> = ({
 
                   <Link
                     page="Portfolio"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  />
-
-                  <Link
-                    page="Blog"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
@@ -127,12 +121,6 @@ const Navbar: FC<Props> = ({
 
             <Link
               page="Portfolio"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            />
-
-            <Link
-              page="Blog"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
