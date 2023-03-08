@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+
 import Hero from "./components/home";
 import Navbar from "./components/navbar";
+import Features from "./components/features";
 import { SelectedPage } from "./shared/types";
 
 function App() {
@@ -26,7 +28,7 @@ function App() {
         isTopOfPage={isTopOfPage}
       />
       <Hero setSelectedPage={setSelectedPage} />
-      <div className="h-[9000px]"></div>
+      <Features setSelectedPage={setSelectedPage} />
     </div>
   );
 }

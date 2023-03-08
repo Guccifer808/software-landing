@@ -39,13 +39,12 @@ const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
                   />
 
                   <Link
-                    page="About"
+                    page="Services"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-
                   <Link
-                    page="Services"
+                    page="About"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
@@ -101,15 +100,14 @@ const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-
             <Link
-              page="About"
+              page="Services"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
 
             <Link
-              page="Services"
+              page="About"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
