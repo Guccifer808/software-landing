@@ -6,6 +6,7 @@ export enum SelectedPage {
     FAQ = "faq",
     Portfolio = "portfolio",
     Contacts = "contacts",
+    Footer = "footer",
   }
 
   export interface FeaturesType {

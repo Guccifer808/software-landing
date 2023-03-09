@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import Hero from "./components/home";
 import Navbar from "./components/navbar";
 import Features from "./components/features";
@@ -8,6 +7,7 @@ import About from "./components/about";
 import Services from "./components/services";
 import Faq from "./components/faq";
 import Contacts from "./components/contacts";
+import Footer from "./components/footer";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -37,6 +37,7 @@ function App() {
       <Services setSelectedPage={setSelectedPage} />
       <Faq setSelectedPage={setSelectedPage} />
       <Contacts setSelectedPage={setSelectedPage} />
+      <Footer />
     </div>
   );
 }
