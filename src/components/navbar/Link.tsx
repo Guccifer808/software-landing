@@ -1,3 +1,4 @@
+import { FC } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { SelectedPage } from "../../shared/types";
 
@@ -7,7 +8,7 @@ type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
-const Link = ({ page, selectedPage, setSelectedPage }: Props) => {
+const Link: FC<Props> = ({ page, selectedPage, setSelectedPage }: Props) => {
   //to lowercase for id, treat as SelectedPage enum
   const lowerCasePage = page.toLowerCase().replace(/ /g, "") as SelectedPage;
   return (

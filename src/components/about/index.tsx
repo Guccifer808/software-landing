@@ -29,7 +29,7 @@ const About: FC<Props> = ({ setSelectedPage }) => {
             >
               <span className="font-medium text-blue-500">About Us</span>
               <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
-                Vortex Software
+                Vortex Solutions
               </h1>
             </motion.div>
             <p className="mb-6 text-slate-500">

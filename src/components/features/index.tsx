@@ -58,7 +58,7 @@ const Features: FC<Props> = ({ setSelectedPage }: Props) => {
         >
           <span className="font-medium text-blue-500">Our Features</span>
           <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
-            Discover Our Features
+            Discover our features
           </h1>
         </motion.div>
         {/* services img  */}

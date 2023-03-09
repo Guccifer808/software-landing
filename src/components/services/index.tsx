@@ -1,9 +1,8 @@
 import { FC } from "react";
-import ActionButton from "../../shared/ActionButton";
 import { motion } from "framer-motion";
 import { SelectedPage, ServicesType } from "../../shared/types";
-import features from "../../assets/images/features/features.png";
 import Service from "./Service";
+
 import {
   FaChartArea,
   FaCloudUploadAlt,
@@ -84,7 +83,7 @@ const Services: FC<Props> = ({ setSelectedPage }: Props) => {
             Our services are exceptional
           </h1>
           <p className="max-w-2 mx-auto mt-2 text-slate-500">
-            Streamline Your Business Operations with Efficient SaaS Services
+            Streamline your business operations with efficient Vortex services
           </p>
         </motion.div>
         {/* box wrapper */}
@@ -102,7 +101,6 @@ const Services: FC<Props> = ({ setSelectedPage }: Props) => {
               icon={item.icon} // extract the image file path
               title={item.title}
               description={item.description}
-              setSelectedPage={setSelectedPage}
             />
           ))}
         </motion.div>
