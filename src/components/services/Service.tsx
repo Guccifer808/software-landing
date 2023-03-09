@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
-import { SelectedPage } from "../../shared/types";
+import { FC } from "react";
 type Props = {
   icon: React.ReactNode;
   title: string;
   description: string;
-  setSelectedPage: (value: SelectedPage) => void;
 };
 const childVariant = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1 },
 };
-const Service = ({ icon, title, description }: Props) => {
+const Service: FC<Props> = ({ icon, title, description }: Props) => {
   return (
     <motion.div variants={childVariant}>
       <div className="group flex cursor-pointer flex-col items-center rounded-xl border border-blue-500/10 bg-white px-5 py-8 text-dark-100 shadow-lg shadow-blue-300/10 duration-200 hover:bg-blue-500 hover:text-white">

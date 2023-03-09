@@ -1,8 +1,9 @@
 export enum SelectedPage {
     Home = "home",
     Features = "features",
-    Services = "services",
     About = "about",
+    Services = "services",
+    FAQ = "faq",
     Portfolio = "portfolio",
     Contacts = "contacts",
   }
@@ -20,4 +21,8 @@ export enum SelectedPage {
   export interface BrandsType {
     image: { [key: string]: string };
     alt: string;
+  }
+  export interface FaqType {
+    title: string;
+    description: string;
   }

@@ -57,6 +57,11 @@ const Navbar: FC<Props> = ({
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
+                  <Link
+                    page="FAQ"
+                    selectedPage={selectedPage}
+                    setSelectedPage={setSelectedPage}
+                  />
 
                   <Link
                     page="Portfolio"
@@ -115,6 +120,11 @@ const Navbar: FC<Props> = ({
             />
             <Link
               page="Services"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Link
+              page="FAQ"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
