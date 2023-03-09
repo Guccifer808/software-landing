@@ -44,10 +44,7 @@ const Faq: FC<Props> = ({ setSelectedPage }: Props) => {
   };
   return (
     <section className="py-16" id="faq">
-      <motion.div
-        className="mx-auto max-w-7xl px-8 md:px-6"
-        onViewportEnter={() => setSelectedPage(SelectedPage.FAQ)}
-      >
+      <motion.div className="mx-auto max-w-7xl px-8 md:px-6">
         <motion.div
           className="mb-5 sm:mb-10"
           initial="hidden"
@@ -74,6 +71,7 @@ const Faq: FC<Props> = ({ setSelectedPage }: Props) => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
               variants={container}
+              onViewportEnter={() => setSelectedPage(SelectedPage.FAQ)}
             >
               {faqList.map((item, index) => (
                 <FaqItem

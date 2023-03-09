@@ -13,12 +13,28 @@ function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
     SelectedPage.Home
   );
+  // const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsTopOfPage(window.scrollY === 0);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
   useEffect(() => {
     const handleScroll = () => {
-      setIsTopOfPage(window.scrollY === 0);
+      if (window.scrollY === 0) {
+        setIsTopOfPage(true);
+        setSelectedPage(SelectedPage.Home);
+      }
+      if (window.scrollY !== 0) setIsTopOfPage(false);
     };
+    //adding event listener
     window.addEventListener("scroll", handleScroll);
+    //removing on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

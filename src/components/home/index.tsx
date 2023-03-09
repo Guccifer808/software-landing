@@ -39,9 +39,10 @@ const container = {
 };
 const Home: FC<Props> = ({ setSelectedPage }: Props) => {
   return (
-    <section
+    <motion.section
       id="home"
       className="flex w-full items-center justify-between py-16 md:h-full"
+      onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
     >
       <div className="mx-auto mt-32 flex max-w-7xl flex-wrap items-center justify-between px-8 md:mt-14 md:px-6">
         <div className="w-full md:basis-5/12">
@@ -88,7 +89,7 @@ const Home: FC<Props> = ({ setSelectedPage }: Props) => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 export default Home;

@@ -57,9 +57,12 @@ const About: FC<Props> = ({ setSelectedPage }) => {
                 </p>
               </li>
               <li className="mb-8 flex items-center">
-                <div className="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-blue-500 text-white">
+                <motion.div
+                  className="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-blue-500 text-white"
+                  onViewportEnter={() => setSelectedPage(SelectedPage.About)}
+                >
                   <FaCode />
-                </div>
+                </motion.div>
                 <p className="ml-4 max-w-md font-medium text-slate-600">
                   With our no-code approach, our solutions are easy to implement
                   and maintain.

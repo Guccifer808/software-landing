@@ -14,6 +14,7 @@ const Link: FC<Props> = ({ page, selectedPage, setSelectedPage }: Props) => {
   return (
     <AnchorLink
       href={`#${lowerCasePage}`}
+      offset="100"
       onClick={() => setSelectedPage(lowerCasePage)}
       className={`${
         selectedPage === lowerCasePage ? "text-primary-two" : ""

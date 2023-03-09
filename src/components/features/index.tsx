@@ -40,10 +40,7 @@ const container = {
 const Features: FC<Props> = ({ setSelectedPage }: Props) => {
   return (
     <section className="pb-16" id="features">
-      <motion.div
-        className="mx-auto max-w-7xl px-8 md:px-6"
-        onViewportEnter={() => setSelectedPage(SelectedPage.Features)}
-      >
+      <div className="mx-auto max-w-7xl px-8 md:px-6">
         {/* heading text  */}
         <motion.div
           className="mb-5 sm:mb-10"
@@ -94,6 +91,7 @@ const Features: FC<Props> = ({ setSelectedPage }: Props) => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
               variants={container}
+              onViewportEnter={() => setSelectedPage(SelectedPage.Features)}
             >
               {featuresList.map((item: FeaturesType) => (
                 <Feature
@@ -107,7 +105,7 @@ const Features: FC<Props> = ({ setSelectedPage }: Props) => {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

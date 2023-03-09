@@ -23,7 +23,7 @@ const Contacts: FC<Props> = ({ setSelectedPage }: Props) => {
       <div className="mx-auto max-w-7xl px-8 md:px-6">
         <motion.div
           className="-mx-4 flex flex-wrap lg:justify-between"
-          onViewportEnter={() => setSelectedPage(SelectedPage.Features)}
+          onViewportEnter={() => setSelectedPage(SelectedPage.Contacts)}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
