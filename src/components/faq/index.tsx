@@ -40,11 +40,7 @@ const Faq: FC<Props> = ({ setSelectedPage }: Props) => {
   const [selected, setSelected] = useState<number | null>(0);
 
   const handleItemClick = (index: number) => {
-    if (index === selected) {
-      setSelected(null);
-    } else {
-      setSelected(index);
-    }
+    setSelected(selected === index ? null : index);
   };
   return (
     <section className="py-16" id="faq">

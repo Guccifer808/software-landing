@@ -23,13 +23,13 @@ const FaqItem: FC<Props> = ({
 }: Props) => {
   return (
     <motion.div variants={childVariant}>
-      <div className="mb-5 sm:mb-10">
+      <div className="mb-5 transition duration-500 sm:mb-10">
         <button
           type="button"
           className="w-full rounded-lg bg-blue-50 px-8 py-6 text-left"
           onClick={() => handleItemClick(index)}
         >
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between ">
             <h4 className="font-medium text-dark-100">{title}</h4>
             {isSelected ? (
               <FaRegArrowAltCircleUp className="w-8 text-lg text-blue-500" />
@@ -38,9 +38,8 @@ const FaqItem: FC<Props> = ({
             )}
           </div>
         </button>
-
         <div
-          className={`max-h-0 overflow-hidden rounded-b-lg bg-blue-50/30 transition-all duration-500 ${
+          className={`max-h-0 overflow-hidden rounded-b-lg bg-blue-50/30 ${
             isSelected ? "max-h-max" : ""
           }`}
         >
