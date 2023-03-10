@@ -10,6 +10,7 @@ import Contacts from "./components/contacts";
 import Footer from "./components/footer";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
@@ -31,9 +32,20 @@ const auth0Options = {
     redirect_uri: "https://software-landing-one.vercel.app/callback",
   },
 };
+
+const onRedirectCallback = (appState: any) => {
+  const navigate = useNavigate();
+
+  // Use the state from Auth0 to redirect the user to their intended page
+  if (appState && appState.returnTo) {
+    navigate(appState.returnTo);
+  } else {
+    navigate("/dashboard");
+  }
+};
 function App({ setSelectedPage }: Props) {
   return (
-    <Auth0Provider {...auth0Options}>
+    <Auth0Provider {...auth0Options} onRedirectCallback={onRedirectCallback}>
       <Router>
         <div className="app">
           <Routes>
