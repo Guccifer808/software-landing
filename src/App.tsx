@@ -52,16 +52,6 @@ const onRedirectCallback = (
 };
 
 function App({ setSelectedPage }: Props) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const { isLoading, isAuthenticated: auth0IsAuthenticated } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (auth0IsAuthenticated) {
-    setIsAuthenticated(true);
-  }
   return (
     <Auth0Provider {...auth0Options} onRedirectCallback={onRedirectCallback}>
       <Router>
@@ -74,11 +64,8 @@ function App({ setSelectedPage }: Props) {
             <Route path="/login" element={<Login />} />
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             {/* <Route path="/callback" element={<Dashboard />} /> */}
-            {isAuthenticated && (
-              <Route path="/dashboard" element={<Dashboard />} />
-            )}
-            {/* Redirect to login if not authenticated */}
-            {!isAuthenticated && <Navigate to="/" />}
+
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
       </Router>
