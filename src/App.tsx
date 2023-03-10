@@ -32,10 +32,8 @@ const auth0Options = {
     redirect_uri: "https://software-landing-one.vercel.app/callback",
   },
 };
-
-const onRedirectCallback = (appState: any) => {
-  const navigate = useNavigate();
-
+const navigate = useNavigate();
+const onRedirectCallback = (appState: any, navigate: any) => {
   // If the user is returning to a specific page, navigate to that page
   if (appState && appState.returnTo) {
     return navigate(appState.returnTo);
@@ -46,7 +44,10 @@ const onRedirectCallback = (appState: any) => {
 };
 function App({ setSelectedPage }: Props) {
   return (
-    <Auth0Provider {...auth0Options} onRedirectCallback={onRedirectCallback}>
+    <Auth0Provider
+      {...auth0Options}
+      onRedirectCallback={(appState) => onRedirectCallback(appState, navigate)}
+    >
       <Router>
         <div className="app">
           <Routes>
