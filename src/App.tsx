@@ -22,11 +22,13 @@ type Props = {
 };
 // redirectUri: window.location.origin,
 
+//software-landing-one.vercel.app/dashboard?code=wq4J1c8F2H81jP3DJiXvs7DIC49tmAljY9oWEzktfjVpT&state=LVlQLkowTW0tUkNHRG5IM29pdV96THFVTm9mUEVENTRHb1dyUHJLNHloMw%3D%3D
+
 const auth0Options = {
   domain: "dev-3wfcqahpvqzaetgv.us.auth0.com",
   clientId: "FrRLilRP9KUMA8yfwKMTlpy1e82Ic97D",
   authorizationParams: {
-    redirect_uri: "https://software-landing-one.vercel.app/dashboard",
+    redirect_uri: "https://software-landing-one.vercel.app/callback",
   },
 };
 function App({ setSelectedPage }: Props) {
@@ -40,10 +42,8 @@ function App({ setSelectedPage }: Props) {
               element={<Homepage setSelectedPage={setSelectedPage} />}
             />
             <Route path="/login" element={<Login />} />
-            <Route
-              path="/dashboard/*"
-              element={<PrivateRoute path="/dashboard" />}
-            />
+            <Route path="/dashboard" element={<Dashboard />} />
+            {/* <Route path="/callback" element={<Dashboard />} /> */}
             {/* <Route path="/dashboard/*" element={<PrivateRoute />} /> */}
           </Routes>
         </div>
