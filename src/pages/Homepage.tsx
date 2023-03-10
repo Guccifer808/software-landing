@@ -1,13 +1,14 @@
-import Hero from "./home";
-import Navbar from "./navbar";
-import Features from "./features";
+import Hero from "../components/home";
+import Navbar from "../components/navbar";
+import Features from "../components/features";
 import { SelectedPage } from "../shared/types";
-import About from "./about";
-import Services from "./services";
-import Faq from "./faq";
-import Contacts from "./contacts";
-import Footer from "./footer";
+import About from "../components/about";
+import Services from "../components/services";
+import Faq from "../components/faq";
+import Contacts from "../components/contacts";
+import Footer from "../components/footer";
 import { useEffect, useState } from "react";
+import { footerData } from "../components/footer/footerData";
 type Props = { setSelectedPage: (value: SelectedPage) => void };
 
 const Homepage = (props: Props) => {
@@ -53,7 +54,7 @@ const Homepage = (props: Props) => {
       <Services setSelectedPage={setSelectedPage} />
       <Faq setSelectedPage={setSelectedPage} />
       <Contacts setSelectedPage={setSelectedPage} />
-      <Footer />
+      <Footer {...footerData} />
     </div>
   );
 };

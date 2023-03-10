@@ -17,10 +17,10 @@ import {
 } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import Homepage from "./components/Homepage";
+import Homepage from "./pages/Homepage";
 import Dashboard from "./components/dashboard";
 import PrivateRoute from "./components/PrivateRoute";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
