@@ -34,7 +34,7 @@ const auth0Options = {
   domain: "dev-3wfcqahpvqzaetgv.us.auth0.com",
   clientId: "FrRLilRP9KUMA8yfwKMTlpy1e82Ic97D",
   authorizationParams: {
-    redirect_uri: window.location.origin + "/dashboard",
+    redirect_uri: window.location.origin + "/callback",
   },
 };
 const onRedirectCallback = (
