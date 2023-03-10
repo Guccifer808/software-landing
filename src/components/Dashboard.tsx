@@ -4,8 +4,9 @@ type Props = {};
 
 const Dashboard = (props: Props) => {
   return (
-    <div className="">
-      <h1>Admin Dashboard</h1>
+    <div>
+      <h1>Dashboard</h1>
+      <p>Welcome to the Dashboard!</p>
     </div>
   );
 };

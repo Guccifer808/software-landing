@@ -20,12 +20,14 @@ type Props = {
   // path: string;
   // element: React.ReactNode;
 };
+// redirectUri: window.location.origin,
 
 const auth0Options = {
   domain: "dev-3wfcqahpvqzaetgv.us.auth0.com",
   clientId: "FrRLilRP9KUMA8yfwKMTlpy1e82Ic97D",
-  // redirectUri: window.location.origin,
-  redirectUri: "https://software-landing-one.vercel.app/dashboard",
+  authorizationParams: {
+    redirect_uri: "https://software-landing-one.vercel.app/dashboard",
+  },
 };
 function App({ setSelectedPage }: Props) {
   return (
@@ -39,11 +41,10 @@ function App({ setSelectedPage }: Props) {
             />
             <Route path="/login" element={<Login />} />
             <Route
-              path="/dashboard"
-              element={
-                <PrivateRoute path="/dashboard" element={<Dashboard />} />
-              }
+              path="/dashboard/*"
+              element={<PrivateRoute path="/dashboard" />}
             />
+            {/* <Route path="/dashboard/*" element={<PrivateRoute />} /> */}
           </Routes>
         </div>
       </Router>
