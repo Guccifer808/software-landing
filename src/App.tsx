@@ -24,11 +24,7 @@ import Login from "./components/Login";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
-  // path: string;
-  // element: React.ReactNode;
 };
-
-//software-landing-one.vercel.app/dashboard?code=wq4J1c8F2H81jP3DJiXvs7DIC49tmAljY9oWEzktfjVpT&state=LVlQLkowTW0tUkNHRG5IM29pdV96THFVTm9mUEVENTRHb1dyUHJLNHloMw%3D%3D
 
 const auth0Options = {
   domain: "dev-3wfcqahpvqzaetgv.us.auth0.com",
@@ -63,8 +59,7 @@ function App({ setSelectedPage }: Props) {
             />
             <Route path="/login" element={<Login />} />
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-            <Route path="/callback" element={<Dashboard />} />
-
+            {/* <Route path="/callback" element={<Dashboard />} /> */}
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
