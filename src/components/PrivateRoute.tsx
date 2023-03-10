@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { FC } from "react";
 import { Route, Navigate } from "react-router-dom";
-import Dashboard from "./Dashboard";
+import Dashboard from "./dashboard";
 
 type Props = {
   //   path: string;

@@ -18,7 +18,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 import Homepage from "./components/Homepage";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/Login";
 
