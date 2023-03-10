@@ -4,11 +4,11 @@ import { Navigate } from "react-router-dom";
 type Props = {};
 
 const Login = (props: Props) => {
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
 
-  if (isAuthenticated) {
-    return <Navigate to="/dashboard" />;
-  }
+  // if (isAuthenticated) {
+  //   return <Navigate to="/dashboard" />;
+  // }
   return (
     <div>
       <h1>Login</h1>
