@@ -17,8 +17,8 @@ import Login from "./components/Login";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
-  path: string;
-  element: React.ReactNode;
+  // path: string;
+  // element: React.ReactNode;
 };
 
 const auth0Options = {
