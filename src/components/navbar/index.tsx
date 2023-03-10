@@ -6,6 +6,7 @@ import Link from "./Link";
 import { SelectedPage } from "../../shared/types";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import ActionButton from "../../shared/ActionButton";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   selectedPage: SelectedPage;
@@ -22,7 +23,7 @@ const Navbar: FC<Props> = ({
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const navbarBg = isTopOfPage ? "" : "shadow-sm bg-white drop-shadow";
-
+  const navigate = useNavigate();
   return (
     <nav>
       <div
@@ -74,6 +75,13 @@ const Navbar: FC<Props> = ({
                   <ActionButton setSelectedPage={setSelectedPage}>
                     Get Started
                   </ActionButton>
+
+                  <button
+                    onClick={() => navigate("/login")}
+                    className="border:blue-500/50 shadow-xs ml-2 w-full min-w-fit rounded-md border border-blue-500/20 px-4 py-2.5 text-center font-semibold text-blue-500 shadow-blue-500/50 duration-200 hover:border-blue-500 md:w-max"
+                  >
+                    Login
+                  </button>
                 </div>
               </div>
             ) : (

@@ -8,6 +8,7 @@ import brand1 from "../../assets/images/brand/brand1.png";
 import brand2 from "../../assets/images/brand/brand2.png";
 import brand3 from "../../assets/images/brand/brand3.png";
 import brand4 from "../../assets/images/brand/brand4.png";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -38,6 +39,7 @@ const container = {
   },
 };
 const Home: FC<Props> = ({ setSelectedPage }: Props) => {
+  const navigate = useNavigate();
   return (
     <motion.section
       id="home"
@@ -59,8 +61,10 @@ const Home: FC<Props> = ({ setSelectedPage }: Props) => {
             <ActionButton setSelectedPage={setSelectedPage}>
               Get Started
             </ActionButton>
-
-            <button className="border:blue-500/50 w-full min-w-[200px] rounded-md border  border-blue-500/20 px-8 py-2.5 text-center font-semibold text-blue-500 shadow-md shadow-blue-500/50 duration-200 hover:shadow-md hover:shadow-blue-500 md:w-max">
+            <button
+              onClick={() => navigate("/login")}
+              className="border:blue-500/50 w-full min-w-[200px] rounded-md border  border-blue-500/20 px-8 py-2.5 text-center font-semibold text-blue-500 shadow-blue-500/50 duration-200 hover:border-blue-500 md:w-max"
+            >
               Register Now
             </button>
           </div>
