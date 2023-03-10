@@ -10,8 +10,8 @@ type Props = {
 };
 
 const PrivateRoute: FC<Props> = ({ path, ...rest }: Props) => {
-  //   const { isAuthenticated } = useAuth0();
-  const isAuthenticated = true;
+  const { isAuthenticated } = useAuth0();
+  //   const isAuthenticated = true;
   return isAuthenticated ? (
     <Dashboard />
   ) : (
