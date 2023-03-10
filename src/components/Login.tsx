@@ -1,19 +1,19 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Navigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 type Props = {};
 
 const Login = (props: Props) => {
   const { loginWithRedirect } = useAuth0();
+  const location = useLocation();
 
-  // if (isAuthenticated) {
-  //   return <Navigate to="/dashboard" />;
-  // }
+  // Save the current path so we can redirect back to it after login
+  const returnTo = location.pathname;
+
   return (
-    <div>
-      <h1>Login</h1>
-      <button onClick={() => loginWithRedirect()}>Log in</button>
-    </div>
+    <button onClick={() => loginWithRedirect({ appState: { returnTo } })}>
+      Login
+    </button>
   );
 };
 

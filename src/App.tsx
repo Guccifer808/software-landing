@@ -8,8 +8,13 @@ import Services from "./components/services";
 import Faq from "./components/faq";
 import Contacts from "./components/contacts";
 import Footer from "./components/footer";
-import { Auth0Provider } from "@auth0/auth0-react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Dashboard from "./components/Dashboard";
@@ -29,7 +34,7 @@ const auth0Options = {
   domain: "dev-3wfcqahpvqzaetgv.us.auth0.com",
   clientId: "FrRLilRP9KUMA8yfwKMTlpy1e82Ic97D",
   authorizationParams: {
-    redirect_uri: "https://software-landing-one.vercel.app/callback",
+    redirect_uri: window.location.origin + "/dashboard",
   },
 };
 const navigate = useNavigate();
@@ -43,6 +48,16 @@ const onRedirectCallback = (appState: any, navigate: any) => {
   return navigate("/dashboard");
 };
 function App({ setSelectedPage }: Props) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isLoading, isAuthenticated: auth0IsAuthenticated } = useAuth0();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (auth0IsAuthenticated) {
+    setIsAuthenticated(true);
+  }
   return (
     <Auth0Provider
       {...auth0Options}
@@ -58,7 +73,11 @@ function App({ setSelectedPage }: Props) {
             <Route path="/login" element={<Login />} />
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             {/* <Route path="/callback" element={<Dashboard />} /> */}
-            <Route path="/dashboard" element={<PrivateRoute />} />
+            {isAuthenticated && (
+              <Route path="/dashboard" element={<Dashboard />} />
+            )}
+            {/* Redirect to login if not authenticated */}
+            {!isAuthenticated && <Navigate to="/" />}
           </Routes>
         </div>
       </Router>
