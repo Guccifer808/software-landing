@@ -36,12 +36,13 @@ const auth0Options = {
 const onRedirectCallback = (appState: any) => {
   const navigate = useNavigate();
 
-  // Use the state from Auth0 to redirect the user to their intended page
+  // If the user is returning to a specific page, navigate to that page
   if (appState && appState.returnTo) {
-    navigate(appState.returnTo);
-  } else {
-    navigate("/dashboard");
+    return navigate(appState.returnTo);
   }
+
+  // Otherwise, navigate to the dashboard
+  return navigate("/dashboard");
 };
 function App({ setSelectedPage }: Props) {
   return (
