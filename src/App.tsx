@@ -24,7 +24,8 @@ type Props = {
 const auth0Options = {
   domain: "dev-3wfcqahpvqzaetgv.us.auth0.com",
   clientId: "FrRLilRP9KUMA8yfwKMTlpy1e82Ic97D",
-  redirectUri: window.location.origin,
+  // redirectUri: window.location.origin,
+  redirectUri: "https://software-landing-one.vercel.app/dashboard",
 };
 function App({ setSelectedPage }: Props) {
   return (
