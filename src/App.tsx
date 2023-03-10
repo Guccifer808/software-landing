@@ -44,7 +44,7 @@ function App({ setSelectedPage }: Props) {
             <Route path="/login" element={<Login />} />
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             {/* <Route path="/callback" element={<Dashboard />} /> */}
-            <Route path="/dashboard" element={<PrivateRoute />} />
+            <Route path="/callback" element={<PrivateRoute />} />
           </Routes>
         </div>
       </Router>
