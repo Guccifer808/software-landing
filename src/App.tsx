@@ -3,18 +3,16 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  NavigateFunction,
+  useNavigate,
 } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
 import Dashboard from "./components/dashboard";
 import Login from "./pages/Login";
 
-type Props = {
-  navigate: NavigateFunction;
-};
+const onRedirectCallback = (appState: any) => {
+  const navigate = useNavigate();
 
-const onRedirectCallback = (appState: any, navigate: NavigateFunction) => {
   // If the user is returning to a specific page, navigate to that page
   if (appState && appState.returnTo) {
     return navigate(appState.returnTo);
@@ -32,12 +30,9 @@ const auth0Options = {
   },
 };
 
-function App({ navigate }: Props) {
+function App() {
   return (
-    <Auth0Provider
-      {...auth0Options}
-      onRedirectCallback={(appState) => onRedirectCallback(appState, navigate)}
-    >
+    <Auth0Provider {...auth0Options} onRedirectCallback={onRedirectCallback}>
       <Router>
         <div className="app">
           <Routes>
