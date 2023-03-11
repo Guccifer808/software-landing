@@ -14,9 +14,9 @@ function onRedirectCallback(appState: { returnTo?: string } | undefined): void {
   const navigate = useNavigate();
 
   // If the user is returning to a specific page, navigate to that page
-  if (appState && appState.returnTo) {
-    navigate(appState.returnTo);
-  }
+  // if (appState && appState.returnTo) {
+  //   navigate(appState.returnTo);
+  // }
 
   // Otherwise, navigate to the dashboard
   navigate("/dashboard");
