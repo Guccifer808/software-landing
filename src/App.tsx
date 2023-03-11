@@ -11,15 +11,16 @@ import Homepage from "./pages/Homepage";
 import Dashboard from "./components/dashboard";
 import Login from "./pages/Login";
 
-function onRedirectCallback(
-  appState: { returnTo?: string } | undefined,
-  navigate: NavigateFunction
-): void {
+function onRedirectCallback(appState: { returnTo?: string } | undefined): void {
+  const navigate = useNavigate();
+
+  // If the user is returning to a specific page, navigate to that page
   if (appState && appState.returnTo) {
     navigate(appState.returnTo);
-  } else {
-    navigate("/dashboard");
   }
+
+  // Otherwise, navigate to the dashboard
+  navigate("/dashboard");
 }
 
 const auth0Options = {
@@ -31,12 +32,8 @@ const auth0Options = {
 };
 
 function App() {
-  const navigate = useNavigate();
   return (
-    <Auth0Provider
-      {...auth0Options}
-      onRedirectCallback={(appState) => onRedirectCallback(appState, navigate)}
-    >
+    <Auth0Provider {...auth0Options} onRedirectCallback={onRedirectCallback}>
       <Router>
         <div className="app">
           <Routes>
