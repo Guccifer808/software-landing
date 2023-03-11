@@ -9,9 +9,10 @@ import Contacts from "../components/contacts";
 import Footer from "../components/footer";
 import { useEffect, useState } from "react";
 import { footerData } from "../components/footer/footerData";
-type Props = { setSelectedPage: (value: SelectedPage) => void };
 
-const Homepage = (props: Props) => {
+// type Props = { setSelectedPage: (value: SelectedPage) => void };
+
+const Homepage = () => {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
     SelectedPage.Home
   );

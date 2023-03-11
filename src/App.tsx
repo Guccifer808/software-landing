@@ -1,43 +1,24 @@
-import { useEffect, useState } from "react";
-import Hero from "./components/home";
-import Navbar from "./components/navbar";
-import Features from "./components/features";
 import { SelectedPage } from "./shared/types";
-import About from "./components/about";
-import Services from "./components/services";
-import Faq from "./components/faq";
-import Contacts from "./components/contacts";
-import Footer from "./components/footer";
-import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
+import { Auth0Provider } from "@auth0/auth0-react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
+  NavigateFunction,
 } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
 import Dashboard from "./components/dashboard";
-import PrivateRoute from "./components/PrivateRoute";
 import Login from "./pages/Login";
 
 type Props = {
-  setSelectedPage: (value: SelectedPage) => void;
+  navigate: NavigateFunction;
 };
 
-const auth0Options = {
-  domain: "dev-3wfcqahpvqzaetgv.us.auth0.com",
-  clientId: "FrRLilRP9KUMA8yfwKMTlpy1e82Ic97D",
-  authorizationParams: {
-    redirect_uri: window.location.origin + "/callback",
-  },
-};
 const onRedirectCallback = (
-  appState: { returnTo?: string } | undefined
+  appState: { returnTo?: string } | undefined,
+  navigate: NavigateFunction
 ): void => {
-  const navigate = useNavigate();
-
   // If the user is returning to a specific page, navigate to that page
   if (appState && appState.returnTo) {
     return navigate(appState.returnTo);
@@ -47,20 +28,27 @@ const onRedirectCallback = (
   return navigate("/dashboard");
 };
 
-function App({ setSelectedPage }: Props) {
+const auth0Options = {
+  domain: "dev-3wfcqahpvqzaetgv.us.auth0.com",
+  clientId: "FrRLilRP9KUMA8yfwKMTlpy1e82Ic97D",
+  authorizationParams: {
+    redirect_uri: window.location.origin + "/callback",
+  },
+};
+
+function App({ navigate }: Props) {
   return (
-    <Auth0Provider {...auth0Options} onRedirectCallback={onRedirectCallback}>
+    <Auth0Provider
+      {...auth0Options}
+      onRedirectCallback={(appState) => onRedirectCallback(appState, navigate)}
+    >
       <Router>
         <div className="app">
           <Routes>
-            <Route
-              path="/"
-              element={<Homepage setSelectedPage={setSelectedPage} />}
-            />
+            <Route path="/" element={<Homepage />} />
             <Route path="/login" element={<Login />} />
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route path="/callback" element={<Dashboard />} />
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
       </Router>

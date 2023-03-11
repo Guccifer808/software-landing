@@ -10,7 +10,7 @@ type Props = {
 };
 
 const addressLink = "https://goo.gl/maps/jyAjCDkoypxddJ5q7";
-const emailLink = "mailto:contact@vortex.com";
+const emailLink = "contact@vortex.com";
 const phoneNumber = "1 234 5679";
 
 const Contacts: FC<Props> = ({ setSelectedPage }: Props) => {
@@ -111,7 +111,7 @@ const Contacts: FC<Props> = ({ setSelectedPage }: Props) => {
                     Email
                   </h4>
                   <p className="cursor-pointer text-base text-slate-400">
-                    <a href={emailLink}>{emailLink}</a>
+                    <a href={`mailto:${emailLink}`}>{emailLink}</a>
                   </p>
                 </div>
               </div>
