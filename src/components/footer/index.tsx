@@ -14,47 +14,12 @@ interface Props {
   githubUrl: string;
 }
 
-const columns = [
-  {
-    heading: "About",
-    links: [
-      { title: "Our Company", href: "/about" },
-      { title: "Our Team", href: "/team" },
-      { title: "Our Services", href: "/services" },
-    ],
-  },
-  {
-    heading: "Contact Us",
-    links: [
-      { title: "Phone", href: "tel:1234567890" },
-      { title: "Email", href: "mailto:info@example.com" },
-      { title: "Address", href: "/address" },
-    ],
-  },
-  {
-    heading: "Services",
-    links: [
-      { title: "Our Company", href: "/about" },
-      { title: "Our Team", href: "/team" },
-      { title: "Our Services", href: "/services" },
-    ],
-  },
-  {
-    heading: "Careers",
-    links: [
-      { title: "Phone", href: "tel:1234567890" },
-      { title: "Email", href: "mailto:info@example.com" },
-      { title: "Address", href: "/address" },
-    ],
-  },
-];
-
-const author = "Guccifer808";
-const githubUrl = "https://github.com/guccifer808";
-
-{
-  /* <Footer columns={columns} author={author} githubUrl={githubUrl} /> */
-}
+const handleScrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
 const Footer: FC<Props> = ({ columns, author, githubUrl }: Props) => {
   return (
@@ -63,7 +28,12 @@ const Footer: FC<Props> = ({ columns, author, githubUrl }: Props) => {
         {/* footer top */}
         <div className="row-gap-10 mb-8 grid gap-16 lg:grid-cols-6">
           <div className="md:max-w-md lg:col-span-2">
-            <img src={logo} alt="footer" className="w-36" />
+            <img
+              src={logo}
+              alt="footer"
+              className="w-36 cursor-pointer"
+              onClick={handleScrollToTop}
+            />
             <div className="mt-4 lg:max-w-sm">
               <p className="text-sm text-slate-500">
                 Streamline your business operations with Vortex - The all-in-one
