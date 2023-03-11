@@ -1,4 +1,3 @@
-import { SelectedPage } from "./shared/types";
 import { Auth0Provider } from "@auth0/auth0-react";
 import {
   BrowserRouter as Router,
@@ -15,10 +14,7 @@ type Props = {
   navigate: NavigateFunction;
 };
 
-const onRedirectCallback = (
-  appState: { returnTo?: string } | undefined,
-  navigate: NavigateFunction
-): void => {
+const onRedirectCallback = (appState: any, navigate: NavigateFunction) => {
   // If the user is returning to a specific page, navigate to that page
   if (appState && appState.returnTo) {
     return navigate(appState.returnTo);
