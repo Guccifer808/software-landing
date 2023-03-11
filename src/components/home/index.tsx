@@ -8,6 +8,8 @@ import brand1 from "../../assets/images/brand/brand1.png";
 import brand2 from "../../assets/images/brand/brand2.png";
 import brand3 from "../../assets/images/brand/brand3.png";
 import brand4 from "../../assets/images/brand/brand4.png";
+import brand5 from "../../assets/images/brand/brand5.png";
+import brand6 from "../../assets/images/brand/brand6.png";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
@@ -29,6 +31,14 @@ const brandsList: Array<BrandsType> = [
   {
     image: { brand4 },
     alt: "Outshifter",
+  },
+  {
+    image: { brand5 },
+    alt: "Tisseran",
+  },
+  {
+    image: { brand6 },
+    alt: "Zentrade",
   },
 ];
 //motion div configurations
