@@ -27,6 +27,7 @@ const Feature: FC<Props> = ({
       <h3 className="text-lg font-bold text-slate-600">{title}</h3>
       <AnchorLink
         className="text-sm text-blue-500"
+        offset={100}
         onClick={() => setSelectedPage(SelectedPage.Contacts)}
         href={`#${SelectedPage.Contacts}`}
       >
