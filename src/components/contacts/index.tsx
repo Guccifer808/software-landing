@@ -1,8 +1,9 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { SelectedPage } from "../../shared/types";
 import { FaLocationArrow, FaPhoneAlt, FaEnvelopeOpen } from "react-icons/fa";
 import effectImage from "../../assets/images/effect.png";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -13,6 +14,31 @@ const emailLink = "mailto:contact@vortex.com";
 const phoneNumber = "1 234 5679";
 
 const Contacts: FC<Props> = ({ setSelectedPage }: Props) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [message, setMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await emailjs.sendForm(
+        "service_y0i6p7j",
+        "template_veyr6uf",
+        e.currentTarget,
+        "wHKDnOuPASssRRaFd"
+      );
+      setSuccessMessage(true);
+      setName("");
+      setEmail("");
+      setCompanyName("");
+      setMessage("");
+    } catch (error) {
+      setError(true);
+    }
+  };
   return (
     <section className="relative overflow-hidden py-16" id="contacts">
       <img
@@ -91,14 +117,16 @@ const Contacts: FC<Props> = ({ setSelectedPage }: Props) => {
               </div>
             </div>
           </div>
-          {/* Right side */}
+          {/* Right side/Form */}
           <div className="w-full px-4 md:w-1/2 xl:w-5/12">
             <div className="relative rounded-lg bg-white p-8 shadow-lg shadow-blue-500/10 sm:p-12">
-              <form action="">
+              <form onSubmit={handleSubmit}>
                 <div className="mb-6">
                   <input
                     type="text"
                     placeholder="Your Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
@@ -106,20 +134,28 @@ const Contacts: FC<Props> = ({ setSelectedPage }: Props) => {
                   <input
                     type="email"
                     placeholder="Your Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div className="mb-6">
                   <input
-                    type="password"
-                    placeholder="Your Passsword"
+                    type="text"
+                    placeholder="Company Name"
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
                     className="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
+
                 <div className="mb-6">
                   <textarea
+                    placeholder="Your Message"
                     name="message"
                     rows={6}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     className="w-full resize-none rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
                   ></textarea>
                 </div>
@@ -132,6 +168,19 @@ const Contacts: FC<Props> = ({ setSelectedPage }: Props) => {
                   </button>
                 </div>
               </form>
+              {/* Success message */}
+              {successMessage && (
+                <div className="mt-4 text-center text-lg text-blue-500">
+                  Message sent successfully!
+                </div>
+              )}
+              {/* Error */}
+              {error && (
+                <div className="mt-4 text-center text-lg text-red-500">
+                  There was an error submitting the form. Please try again
+                  later.
+                </div>
+              )}
             </div>
           </div>
         </motion.div>
