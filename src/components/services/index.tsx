@@ -68,7 +68,7 @@ const Services: FC<Props> = ({ setSelectedPage }: Props) => {
           className="mb-5 sm:mb-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.25 }}
           transition={{ delay: 0.2, duration: 0.5 }}
           variants={{
             hidden: { opacity: 0, x: -50 },
@@ -89,7 +89,7 @@ const Services: FC<Props> = ({ setSelectedPage }: Props) => {
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.25 }}
           variants={container}
           onViewportEnter={() => setSelectedPage(SelectedPage.Services)}
         >

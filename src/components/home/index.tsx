@@ -74,7 +74,7 @@ const Home: FC<Props> = ({ setSelectedPage }: Props) => {
             className="mt-6 flex flex-wrap items-center justify-around gap-4 md:justify-start"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.25 }}
             variants={container}
           >
             {brandsList.map((brand: BrandsType) => (

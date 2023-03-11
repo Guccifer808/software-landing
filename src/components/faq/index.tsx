@@ -49,7 +49,7 @@ const Faq: FC<Props> = ({ setSelectedPage }: Props) => {
           className="mb-5 sm:mb-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.25 }}
           transition={{ delay: 0.2, duration: 0.5 }}
           variants={{
             hidden: { opacity: 0, x: -50 },
@@ -69,7 +69,7 @@ const Faq: FC<Props> = ({ setSelectedPage }: Props) => {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
+              viewport={{ once: true, amount: 0.25 }}
               variants={container}
               onViewportEnter={() => setSelectedPage(SelectedPage.FAQ)}
             >
