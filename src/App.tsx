@@ -10,18 +10,17 @@ import Homepage from "./pages/Homepage";
 import Dashboard from "./components/dashboard";
 import Login from "./pages/Login";
 
-const onRedirectCallback = (appState: any) => {
+function onRedirectCallback(appState: { returnTo?: string } | undefined): void {
   const navigate = useNavigate();
 
   // If the user is returning to a specific page, navigate to that page
   if (appState && appState.returnTo) {
-    return navigate(appState.returnTo);
+    navigate(appState.returnTo);
   }
 
   // Otherwise, navigate to the dashboard
-  return navigate("/dashboard");
-};
-
+  navigate("/dashboard");
+}
 const auth0Options = {
   domain: "dev-3wfcqahpvqzaetgv.us.auth0.com",
   clientId: "FrRLilRP9KUMA8yfwKMTlpy1e82Ic97D",
@@ -38,7 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/callback" element={<Dashboard />} />
+            {/* <Route path="/callback" element={<Dashboard />} /> */}
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
