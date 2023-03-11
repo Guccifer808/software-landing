@@ -2,16 +2,23 @@ import { FC } from "react";
 import { useState } from "react";
 import logo from "../../assets/images/logo.png";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import Link from "./Link";
 import { SelectedPage } from "../../shared/types";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import ActionButton from "../../shared/ActionButton";
 import { useNavigate } from "react-router-dom";
+import CustomLink from "./CustomLink";
 
 type Props = {
   selectedPage: SelectedPage;
   setSelectedPage: (value: SelectedPage) => void;
   isTopOfPage: boolean;
+};
+
+const handleScrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 };
 
 const Navbar: FC<Props> = ({
@@ -32,39 +39,46 @@ const Navbar: FC<Props> = ({
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* Left side */}
-            <img src={logo} alt="logo" className="w-32" />
+
+            <img
+              src={logo}
+              alt="logo"
+              className="w-32"
+              onClick={handleScrollToTop}
+            />
+
             {/* Right side */}
             {isAboveMediumScreens ? (
               <div className={`${flexBetween} w-full`}>
                 {/* Links */}
                 <div className={`${flexBetween} text-md gap-8`}>
-                  <Link
+                  <CustomLink
                     page="Home"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-                  <Link
+                  <CustomLink
                     page="Features"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-                  <Link
+                  <CustomLink
                     page="About"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-                  <Link
+                  <CustomLink
                     page="Services"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-                  <Link
+                  <CustomLink
                     page="FAQ"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
 
-                  <Link
+                  <CustomLink
                     page="Contacts"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
@@ -105,33 +119,33 @@ const Navbar: FC<Props> = ({
           <div
             className={`${flexBetween} text-md flex flex-col justify-center gap-6 font-semibold`}
           >
-            <Link
+            <CustomLink
               page="Home"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-            <Link
+            <CustomLink
               page="Features"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-            <Link
+            <CustomLink
               page="About"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-            <Link
+            <CustomLink
               page="Services"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-            <Link
+            <CustomLink
               page="FAQ"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
 
-            <Link
+            <CustomLink
               page="Contacts"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}

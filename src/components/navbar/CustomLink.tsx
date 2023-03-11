@@ -8,7 +8,11 @@ type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
-const Link: FC<Props> = ({ page, selectedPage, setSelectedPage }: Props) => {
+const CustomLink: FC<Props> = ({
+  page,
+  selectedPage,
+  setSelectedPage,
+}: Props) => {
   //to lowercase for id, treat as SelectedPage enum
   const lowerCasePage = page.toLowerCase().replace(/ /g, "") as SelectedPage;
   return (
@@ -25,4 +29,4 @@ const Link: FC<Props> = ({ page, selectedPage, setSelectedPage }: Props) => {
   );
 };
 
-export default Link;
+export default CustomLink;
