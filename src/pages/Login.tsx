@@ -12,25 +12,37 @@ const Login = (props: Props) => {
 
   useEffect(() => {
     const handleRedirectCallback = async () => {
-      // If the user is not authenticated, redirect to the homepage
+      // If the user is not authenticated, return
       if (!isAuthenticated) {
-        navigate("/");
         return;
       }
-      navigate("/dashboard");
+
+      // Get the returnTo path from localStorage
+      const returnTo = localStorage.getItem("returnTo") || "/dashboard";
+
+      // Clear the returnTo path from localStorage
+      localStorage.removeItem("returnTo");
+
+      // Redirect to the returnTo path
+      navigate(returnTo);
     };
 
     // Call the handleRedirectCallback function when the component mounts
     handleRedirectCallback();
   }, [isAuthenticated, getIdTokenClaims, navigate]);
+
   // Save the current path so we can redirect back to it after login
   const returnTo = location.pathname;
 
-  return (
-    <button onClick={() => loginWithRedirect({ appState: { returnTo } })}>
-      Login
-    </button>
-  );
+  const handleLogin = () => {
+    // Save the returnTo path to localStorage
+    localStorage.setItem("returnTo", returnTo);
+
+    // Redirect to the login page
+    loginWithRedirect();
+  };
+
+  return <button onClick={handleLogin}>Login</button>;
 };
 
 export default Login;
