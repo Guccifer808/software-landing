@@ -4,7 +4,6 @@ import {
   Routes,
   Route,
   useNavigate,
-  NavigateFunction,
 } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
@@ -17,6 +16,7 @@ function onRedirectCallback(appState: { returnTo?: string } | undefined): void {
   // If the user is returning to a specific page, navigate to that page
   if (appState && appState.returnTo) {
     navigate(appState.returnTo);
+    return;
   }
 
   // Otherwise, navigate to the dashboard
@@ -39,7 +39,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/callback" element={<Dashboard />} />
+            {/* <Route path="/callback" element={<Callback />} /> */}
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
