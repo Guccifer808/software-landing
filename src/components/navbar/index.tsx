@@ -100,13 +100,13 @@ const Navbar: FC<Props> = ({
               </div>
             ) : (
               <button
-                className="rounded-full bg-primary-two p-2 text-white"
+                className="rounded-full p-2 text-primary-two"
                 onClick={() => setIsMenuToggled(!isMenuToggled)}
               >
                 {!isMenuToggled ? (
-                  <HiMenuAlt3 className="h-5 w-5" />
+                  <HiMenuAlt3 className="h-6 w-6" />
                 ) : (
-                  <HiX className="h-5 w-5" />
+                  <HiX className="h-6 w-6" />
                 )}
               </button>
             )}
@@ -115,7 +115,7 @@ const Navbar: FC<Props> = ({
       </div>
       {/* Mob menu */}
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className="fixed right-0 top-[85px] z-30 w-full max-w-full rounded-lg border border-blue-200 bg-white p-6 transition-all duration-200 sm:right-1 sm:max-w-[300px]">
+        <div className="fixed right-0 top-[82px] z-30 w-full max-w-full rounded-lg border border-blue-200 bg-white p-6 transition-all duration-200 sm:right-1 sm:max-w-[300px]">
           <div
             className={`${flexBetween} text-md flex flex-col justify-center gap-6 font-semibold`}
           >
