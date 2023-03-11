@@ -43,7 +43,7 @@ const Navbar: FC<Props> = ({
             <img
               src={logo}
               alt="logo"
-              className="w-32"
+              className="w-32 cursor-pointer"
               onClick={handleScrollToTop}
             />
 
