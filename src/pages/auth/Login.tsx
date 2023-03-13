@@ -23,14 +23,7 @@ const Login: FC<Props> = (props) => {
       });
   };
   return (
-    // <div>
-    //   <h1 className="text-3xl">Login Page</h1>
-    //   <button onClick={() => signInWithGoogle()} disabled={authing}>
-    //     Login
-    //   </button>
-    // </div>
-
-    <section className="flex h-screen w-screen items-center rounded-2xl bg-gray-100 p-5 shadow-lg">
+    <section className="flex h-screen flex-col items-center justify-center bg-gray-100 p-5">
       {/* container */}
       <div className="mx-auto flex max-w-3xl items-center rounded-2xl bg-gray-100 p-5 shadow-lg">
         {/* form */}
