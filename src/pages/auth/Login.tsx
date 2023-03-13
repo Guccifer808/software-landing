@@ -1,27 +1,80 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  AuthError,
+  User,
+} from "firebase/auth";
 import image from "../../assets/images/hero.png";
 
-type Props = {};
+type Props = { onSuccess?: () => void; onError?: (error: AuthError) => void };
 
-const Login: FC<Props> = (props) => {
+const Login: FC<Props> = ({ onSuccess, onError }) => {
   const auth = getAuth();
   const navigate = useNavigate();
-  const [authing, setAuthing] = useState(false);
+  const [authing, setAuthing] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [user, setUser] = useState<User | null>(null);
+
+  // Email & Password sign in
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      setUser(user);
+    } catch (error: unknown) {
+      console.error(error);
+      if (onError && isAuthError(error)) {
+        onError(error);
+      }
+    }
+  };
+
+  //Google Sign in
   const signInWithGoogle = async () => {
     setAuthing(true);
 
-    signInWithPopup(auth, new GoogleAuthProvider())
-      .then((response) => {
-        // console.log(response.user.uid);
-        navigate("/dashboard");
-      })
-      .catch((error) => {
-        console.log(error);
-        setAuthing(false);
-      });
+    try {
+      const response = await signInWithPopup(auth, new GoogleAuthProvider());
+      const user = response.user;
+      setUser(user);
+    } catch (error: unknown) {
+      console.error(error);
+    } finally {
+      setAuthing(false);
+    }
   };
+  // Typeguard to check if the error is an instance of AuthError before calling onError
+  function isAuthError(error: unknown): error is AuthError {
+    return (
+      typeof error === "object" &&
+      error !== null &&
+      "code" in error &&
+      typeof (error as { code: unknown }).code === "string" &&
+      "message" in error &&
+      typeof (error as { message: unknown }).message === "string"
+    );
+  }
+
+  // navigate after login
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard");
+      if (onSuccess) onSuccess();
+    } else {
+      navigate("/login");
+    }
+  }, [user]);
   return (
     <section className="flex h-screen flex-col items-center justify-center bg-gray-100 p-5">
       {/* container */}
@@ -32,21 +85,27 @@ const Login: FC<Props> = (props) => {
           <p className="mt-4 text-xs text-[#002D74]">
             Log in if you are a member
           </p>
-          <form action="" className="flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input
               type="email"
-              name="email"
               id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
               className="mt-8 rounded-xl border p-2"
+              required
             />
             <div className="relative">
               <input
                 type="password"
-                name="password"
                 id="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 className="w-full rounded-xl p-2"
+                required
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +119,10 @@ const Login: FC<Props> = (props) => {
                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
               </svg>
             </div>
-            <button className="rounded-xl bg-blue-500 py-2 text-white duration-500 hover:scale-105">
+            <button
+              type="submit"
+              className="rounded-xl bg-blue-500 py-2 text-white duration-500 hover:scale-105"
+            >
               Login
             </button>
           </form>
