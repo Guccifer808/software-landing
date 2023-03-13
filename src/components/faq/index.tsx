@@ -2,7 +2,8 @@ import { FC } from "react";
 import { useState } from "react";
 import { FaqType, SelectedPage } from "../../shared/types";
 import FaqItem from "./FaqItem";
-import faqImage from "../../assets/images/faq.png";
+// import faqImage from "../../assets/images/faq.png";
+import faqImage from "../../assets/images/faq.svg";
 import { motion } from "framer-motion";
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;

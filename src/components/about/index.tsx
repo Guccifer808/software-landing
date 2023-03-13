@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import ActionButton from "../../shared/ActionButton";
 import { SelectedPage } from "../../shared/types";
 import { FaBriefcase, FaCubes, FaCode } from "react-icons/fa";
-import about from "../../assets/images/about.png";
+// import aboutImage from "../../assets/images/about.png";
+import aboutImage from "../../assets/images/about.svg";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -14,7 +15,16 @@ const About: FC<Props> = ({ setSelectedPage }) => {
     <section className="py-16" id="about">
       <div className="mx-auto max-w-7xl px-8 md:px-6">
         <div className="md:flex md:justify-between md:gap-6">
-          <div className="md:w-6/12">
+          {/* about img */}
+          <div className="order-2 mt-8 mb-5 md:mt-0 md:w-5/12">
+            <img
+              src={aboutImage}
+              alt="about us"
+              className="max-h-[500px] md:max-h-max"
+            />
+          </div>
+
+          <div className="order-1 md:w-6/12">
             {/* heading text */}
             <motion.div
               className="mb-5 sm:mb-10"
@@ -74,15 +84,6 @@ const About: FC<Props> = ({ setSelectedPage }) => {
                 Get Started
               </ActionButton>
             </div>
-          </div>
-
-          {/* about img */}
-          <div className="mt-8 flex justify-center md:mt-0 md:w-5/12">
-            <img
-              src={about}
-              alt="about us"
-              className="max-h-[500px] md:max-h-max"
-            />
           </div>
         </div>
       </div>
