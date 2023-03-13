@@ -64,7 +64,7 @@ const Features: FC<Props> = ({ setSelectedPage }: Props) => {
             <img
               src={features}
               alt="features img"
-              className="h-full scale-125 sm:w-full sm:object-cover"
+              className="object-fit h-full sm:w-full sm:object-cover"
             />
           </div>
           {/* titles */}
