@@ -64,7 +64,11 @@ const Faq: FC<Props> = ({ setSelectedPage }: Props) => {
         </motion.div>
         <div className="md:flex md:justify-between md:gap-6">
           <div className="mb-8 flex justify-center md:mb-0 md:w-5/12">
-            <img src={faqImage} alt="faq" className="max-h-[500px]" />
+            <img
+              src={faqImage}
+              alt="faq"
+              className="max-h-[500px] md:min-h-[500px] md:object-cover"
+            />
           </div>
           <div className="md:w-6/12">
             <motion.div

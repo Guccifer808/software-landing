@@ -16,7 +16,7 @@ const About: FC<Props> = ({ setSelectedPage }) => {
       <div className="mx-auto max-w-7xl px-8 md:px-6">
         <div className="md:flex md:justify-between md:gap-6">
           {/* about img */}
-          <div className="order-2 mt-8 mb-5 md:mt-0 md:w-5/12">
+          <div className="order-2 mt-8 mb-5 flex justify-center md:mt-0 md:w-5/12">
             <img
               src={aboutImage}
               alt="about us"
