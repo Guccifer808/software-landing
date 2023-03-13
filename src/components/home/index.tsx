@@ -11,7 +11,6 @@ import brand4 from "../../assets/images/brand/brand4.png";
 import brand5 from "../../assets/images/brand/brand5.png";
 import brand6 from "../../assets/images/brand/brand6.png";
 import { useNavigate } from "react-router-dom";
-
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
