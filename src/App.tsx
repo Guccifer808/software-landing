@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { initializeApp } from "firebase/app";
-import { config } from "./config/config";
+// import { config } from "./firebase/config";
 
 import Homepage from "./pages/Homepage";
 import Dashboard from "./components/dashboard";
@@ -9,7 +9,7 @@ import Login from "./pages/auth/Login";
 import AuthRoute from "./components/AuthRoute";
 
 //firebase init
-initializeApp(config.firebaseConfig);
+// initializeApp(config.firebaseConfig);
 
 type Props = {};
 
