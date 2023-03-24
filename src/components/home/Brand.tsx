@@ -14,8 +14,11 @@ const Brand: FC<Props> = ({ image, alt }: Props) => {
     <motion.img
       src={image}
       alt={alt}
-      className="w-32 cursor-pointer rounded-lg border border-blue-300/20 bg-white px-5 py-3 shadow-md shadow-blue-500/5 duration-200 hover:scale-95 sm:w-36"
+      className="w-32 transform cursor-pointer rounded-lg border border-blue-300/20 bg-white px-5 py-3 shadow-md shadow-blue-500/5 duration-200 hover:scale-95 sm:w-36"
       variants={childVariant}
+      layout={true}
+      // initial="hidden"
+      // animate="visible"
     />
   );
 };

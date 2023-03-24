@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -18,6 +18,7 @@ const Login: FC<Props> = ({ onSuccess, onError }) => {
   const [authing, setAuthing] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [showPassword, setShowPassword] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
   // Email & Password sign in
@@ -75,6 +76,11 @@ const Login: FC<Props> = ({ onSuccess, onError }) => {
       navigate("/login");
     }
   }, [user]);
+
+  // show password
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <section className="flex h-screen flex-col items-center justify-center bg-gray-100 p-5">
       {/* container */}
@@ -98,7 +104,7 @@ const Login: FC<Props> = ({ onSuccess, onError }) => {
             />
             <div className="relative">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 name="password"
                 value={password}
@@ -112,8 +118,9 @@ const Login: FC<Props> = ({ onSuccess, onError }) => {
                 width="16"
                 height="16"
                 fill="gray"
-                className="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2"
+                className="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer"
                 viewBox="0 0 16 16"
+                onClick={toggleShowPassword}
               >
                 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
@@ -165,15 +172,19 @@ bg-white py-2 text-sm text-[#002D74] duration-200 hover:scale-105"
             Login with Google
           </button>
           {/* Forgot section */}
-          <div className="mt-5 cursor-pointer border-b border-[#002D74] py-4 text-xs text-[#002D74] hover:text-[#566894]">
-            <a href="#">Forgot your password?</a>
-          </div>
+          <Link to="/forgotpassword">
+            <div className="mt-5 cursor-pointer border-b border-[#002D74] py-4 text-xs text-[#002D74] hover:text-[#566894]">
+              <p>Forgot your password?</p>
+            </div>
+          </Link>
           {/* Register section */}
           <div className="mt-3 flex items-center justify-between text-xs text-[#002D74]">
             <p>Don't have an account?</p>
-            <button className="rounded-xl border bg-white py-2 px-5 duration-500 hover:scale-110 hover:bg-blue-500 hover:text-white">
-              Register
-            </button>
+            <Link to="/register">
+              <button className="rounded-xl border bg-white py-2 px-5 duration-500 hover:scale-110 hover:bg-blue-500 hover:text-white">
+                Register
+              </button>
+            </Link>
           </div>
         </div>
         {/* Right Side */}

@@ -7,6 +7,8 @@ import Homepage from "./pages/Homepage";
 import Dashboard from "./components/dashboard";
 import Login from "./pages/auth/Login";
 import AuthRoute from "./components/AuthRoute";
+import Register from "./pages/auth/Register";
+import ForgotPassword from "./pages/auth/ForgotPassword";
 
 //firebase init
 initializeApp(config.firebaseConfig);
@@ -28,6 +30,8 @@ const App: FC<Props> = (props) => {
               </AuthRoute>
             }
           />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
         </Routes>
       </Router>
     </div>

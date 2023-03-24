@@ -46,7 +46,7 @@ const Footer: FC<Props> = ({ columns, author, githubUrl }: Props) => {
           <div className="mb-6 grid grid-cols-2 gap-6 whitespace-nowrap lg:grid-cols-8 lg:gap-48">
             {columns.map((column, index) => (
               <div key={index} className="row-gap-8">
-                <p className="font-semibold text-dark-100 ">{column.heading}</p>
+                <p className="font-semibold text-blue-500 ">{column.heading}</p>
                 <ul className="mt-2 space-y-2">
                   {column.links.map((link, index) => (
                     <li key={index}>

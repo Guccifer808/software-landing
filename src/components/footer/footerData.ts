@@ -3,33 +3,33 @@ export const footerData = {
       {
         heading: "About",
         links: [
-          { title: "Our Company", href: "/about" },
-          { title: "Our Team", href: "/team" },
-          { title: "Our Services", href: "/services" },
+          { title: "Our Company", href: "/" },
+          { title: "Our Team", href: "/" },
+          { title: "Our Services", href: "/" },
         ],
       },
       {
-        heading: "Contact Us",
+        heading: "For developers",
         links: [
-          { title: "Phone", href: "tel:1234567890" },
-          { title: "Email", href: "mailto:info@example.com" },
-          { title: "Address", href: "/address" },
+          { title: "API Documentation", href: "/" },
+          { title: "GitHub Repository", href: "https://github.com/guccifer808" },
+          { title: "Support Forum", href: "/" },
         ],
       },
       {
         heading: "Services",
         links: [
-          { title: "Our Company", href: "/about" },
-          { title: "Our Team", href: "/team" },
-          { title: "Our Services", href: "/services" },
+          { title: "Our Company", href: "/" },
+          { title: "Our Team", href: "/" },
+          { title: "Our Services", href: "/" },
         ],
       },
       {
         heading: "Careers",
         links: [
-          { title: "Phone", href: "tel:1234567890" },
-          { title: "Email", href: "mailto:info@example.com" },
-          { title: "Address", href: "/address" },
+          { title: "Job Openings", href: "/" },
+          { title: "Culture and Values", href: "/" },
+          { title: "Employee Benefits", href: "/" },
         ],
       },
     ],
