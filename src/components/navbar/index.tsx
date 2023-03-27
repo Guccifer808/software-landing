@@ -94,7 +94,7 @@ const Navbar: FC<Props> = ({
                     onClick={() => navigate("/login")}
                     className="border:blue-500/50 shadow-xs w-full min-w-fit rounded-md border border-blue-500/20 px-4 py-2.5 text-center font-semibold text-blue-500 shadow-blue-500/50 duration-200 hover:border-blue-500 md:w-max"
                   >
-                    Login
+                    Demo
                   </button>
                 </div>
               </div>

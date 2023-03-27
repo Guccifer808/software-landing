@@ -181,7 +181,7 @@ bg-white py-2 text-sm text-[#002D74] duration-200 hover:scale-105"
           <div className="mt-3 flex items-center justify-between text-xs text-[#002D74]">
             <p>Don't have an account?</p>
             <Link to="/register">
-              <button className="rounded-xl border bg-white py-2 px-5 duration-500 hover:scale-110 hover:bg-blue-500 hover:text-white">
+              <button className="rounded-xl border bg-white py-2 px-5 duration-500 hover:scale-105 hover:bg-blue-500 hover:text-white">
                 Register
               </button>
             </Link>

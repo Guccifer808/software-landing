@@ -74,7 +74,7 @@ const Home: FC<Props> = ({ setSelectedPage }: Props) => {
               onClick={() => navigate("/login")}
               className="border:blue-500/50 w-full min-w-[200px] rounded-md border  border-blue-500/20 px-8 py-2.5 text-center font-semibold text-blue-500 shadow-blue-500/50 duration-200 hover:border-blue-500 md:w-max"
             >
-              Register Now
+              Demo Dashboard
             </button>
           </div>
 

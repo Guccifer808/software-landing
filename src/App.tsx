@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 import { config } from "./config/config";
 
 import Homepage from "./pages/Homepage";
-import Dashboard from "./components/dashboard";
+import Dashboard from "./pages/dashboard";
 import Login from "./pages/auth/Login";
 import AuthRoute from "./components/AuthRoute";
 import Register from "./pages/auth/Register";
